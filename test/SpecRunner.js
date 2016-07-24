@@ -1,1 +1,2 @@
-import "./spec/index";
+import "./spec/buildImports";
+import "./spec/buildExports";
