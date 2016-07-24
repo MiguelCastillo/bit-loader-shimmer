@@ -7,6 +7,17 @@ describe("buildImports test suite", function() {
 
     beforeEach(() => act = () => result = shimmerFactory.buildImports(imports));
 
+    describe("and importing is falsy", () => {
+      beforeEach(() => {
+        imports = "";
+        act();
+      });
+
+      it("then the result has no imports", () => {
+        expect(result).to.be.equal("");
+      });
+    });
+
     describe("and importing a string", () => {
       beforeEach(() => {
         imports = "a";

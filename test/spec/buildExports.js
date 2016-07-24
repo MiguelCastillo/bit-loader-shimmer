@@ -7,6 +7,17 @@ describe("buildExports test suite", function() {
 
     beforeEach(() => act = () => result = shimmerFactory.buildExports(exports));
 
+    describe("and exporting is falsy", () => {
+      beforeEach(() => {
+        exports = "";
+        act();
+      });
+
+      it("then the result has no exports", () => {
+        expect(result).to.be.equal("");
+      });
+    });
+
     describe("and exporting a string", () => {
       beforeEach(() => {
         exports = "Jumbo";
