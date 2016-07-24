@@ -1,9 +1,9 @@
-# bit-shimmer
+# bit-loader-shimmer
 plugin for shimming modules in bit-bundler
 
 # Install
 
-`$ npm install bit-shimmer`
+`$ npm install bit-loader-shimmer`
 
 
 # Options
