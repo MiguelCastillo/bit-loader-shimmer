@@ -66,14 +66,14 @@ describe("buildExports test suite", function() {
         }, {
           name: "Saloon",
           as: "Traditional Dance Floor",
-          global: "global-name"
+          global: ["global-name-1", "global-name-2"]
         }];
 
         act();
       });
 
       it("then the result has he named export", () => {
-        expect(result).to.be.equal(";module.exports[\'JJ-\'] = Jumbo;module.exports[\'TeddCruz\'] = global[\'TeddCruz\'] = Tedd;module.exports[\'Traditional Dance Floor\'] = global[\'global-name\'] = Saloon;");
+        expect(result).to.be.equal(";module.exports[\'JJ-\'] = Jumbo;module.exports[\'TeddCruz\'] = global[\'TeddCruz\'] = Tedd;module.exports[\'Traditional Dance Floor\'] = global[\'global-name-1\'] = global[\'global-name-2\'] = Saloon;");
       });
     });
   });
