@@ -61,9 +61,13 @@ function buildImports(config) {
 			var name = item.as || item.name;
 			result += name;
 
-			if (item.global !== false) {
-				var global = types.isString(item.global) ? item.global : name;
-				result += " = global['" + global + "']";
+			if (item.global) {
+				var global = item.global === true ? name : item.global;
+
+				result += utils
+					.toArray(global)
+					.map(function(item) { return " = global['" + item + "']"; })
+					.join("");
 			}
 
 			return result + " = require('" + item.name + "');";
@@ -79,14 +83,18 @@ function buildExports(config) {
 		})
 		.reduce(function(result, item) {
 			var name = item.as || item.name;
-			result += item.as ? "module.exports['" + name + "'] = " : "module.exports = ";
+			result += item.as ? "module.exports['" + name + "']" : "module.exports";
 
 			if (item.global) {
-				var global = types.isString(item.global) ? item.global : name;
-				result += "global['" + global + "'] = ";
+				var global = item.global === true ? name : item.global;
+
+				result += utils
+					.toArray(global)
+					.map(function(item) { return " = global['" + item + "']"; })
+					.join("");
 			}
 
-			return result + item.name + ";";
+			return result + " = " + item.name + ";";
 		}, ";");
 }
 
