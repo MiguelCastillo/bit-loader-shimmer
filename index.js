@@ -52,6 +52,10 @@ function shimmer() {
 
 
 function buildImports(config) {
+	if (!config) {
+		return "";
+	}
+
 	return utils
 		.toArray(config)
 		.map(function(name) {
@@ -76,6 +80,10 @@ function buildImports(config) {
 
 
 function buildExports(config) {
+	if (!config) {
+		return "";
+	}
+
 	return utils
 		.toArray(config)
 		.map(function(name) {
