@@ -43,31 +43,6 @@ function shimmer() {
 	}
 
 
-	function buildImports(deps) {
-		return Object
-			.keys(deps)
-			.map(function(dep) {
-				return types.isString(deps[dep]) ? { name: deps[dep] } : dep;
-			})
-			.reduce(function(imports, dep) {
-				var importName = dep.alias || dep.name;
-				imports += "; " + importName;
-
-				if (dep.global !== false) {
-					imports += " = global." + importName;
-				}
-
-				imports += " = require('" + dep.name + "');";
-				return imports;
-			}, "");
-	}
-
-
-	function buildExports(exports) {
-		return ";module.exports = " + exports + ";";
-	}
-
-
 	return {
 		resolve: resolve,
 		transform: transform,
@@ -75,4 +50,47 @@ function shimmer() {
 	};
 }
 
+
+function buildImports(config) {
+	return utils
+		.toArray(config)
+		.map(function(name) {
+			return types.isString(name) ? { name: name } : name;
+		})
+		.reduce(function(result, item) {
+			var name = item.as || item.name;
+			result += name;
+
+			if (item.global !== false) {
+				var global = types.isString(item.global) ? item.global : name;
+				result += " = global['" + global + "']";
+			}
+
+			return result + " = require('" + item.name + "');";
+		}, ";");
+}
+
+
+function buildExports(config) {
+	return utils
+		.toArray(config)
+		.map(function(name) {
+			return types.isString(name) ? { name: name } : name;
+		})
+		.reduce(function(result, item) {
+			var name = item.as || item.name;
+			result += item.as ? "module.exports['" + name + "'] = " : "module.exports = ";
+
+			if (item.global) {
+				var global = types.isString(item.global) ? item.global : name;
+				result += "global['" + global + "'] = ";
+			}
+
+			return result + item.name + ";";
+		}, ";");
+}
+
+
 module.exports = shimmer;
+module.exports.buildImports = buildImports;
+module.exports.buildExports = buildExports;
