@@ -1,0 +1,26 @@
+{
+  "name": "bit-shimmer",
+  "version": "1.0.0",
+  "description": "plugin for shimming modules in bit-bundler",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha mocha --compilers js:babel-register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiguelCastillo/bit-shimmer.git"
+  },
+  "keywords": [
+    "bit-bundler"
+  ],
+  "author": "Miguel Castillo <manchagnu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MiguelCastillo/bit-shimmer/issues"
+  },
+  "homepage": "https://github.com/MiguelCastillo/bit-shimmer#readme",
+  "dependencies": {
+    "belty": "^4.0.3",
+    "dis-isa": "^1.2.3"
+  }
+}
