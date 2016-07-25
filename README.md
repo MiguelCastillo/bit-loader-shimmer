@@ -170,5 +170,4 @@ shim({
 
 # License
 
-Licensed under MIT
-
+Licensed under MIT - Miguel Castillo

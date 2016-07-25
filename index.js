@@ -117,4 +117,4 @@ function buildExports(config) {
 
 module.exports = shimmer;
 module.exports.buildImports = buildImports;
-module.exports.buildExports = buildExports;
+module.exports.buildExports = buildExports
