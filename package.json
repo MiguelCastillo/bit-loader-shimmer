@@ -4,7 +4,7 @@
   "description": "plugin for shimming modules in bit-bundler",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-register"
+    "test": "eslint *.js && mocha --compilers js:babel-register"
   },
   "repository": {
     "type": "git",
