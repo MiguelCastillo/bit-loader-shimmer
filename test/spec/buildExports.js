@@ -44,7 +44,22 @@ describe("buildExports test suite", function() {
       });
     });
 
-    describe("and exporting an multiple named exports", () => {
+    describe("and exporting a named module from a named global", () => {
+      beforeEach(() => {
+        exports = {
+          global: "Jumbo",
+          as: "JJ-"
+        };
+
+        act();
+      });
+
+      it("then the result has the named export", () => {
+        expect(result).to.be.equal(";module.exports[\'JJ-\'] = global[\'Jumbo\'];");
+      });
+    });
+
+    describe("and exporting multiple named exports", () => {
       beforeEach(() => {
         exports = [{
           name: "Jumbo",
@@ -65,7 +80,7 @@ describe("buildExports test suite", function() {
       });
     });
 
-    describe("and exporting an multiple named exports with global exports", () => {
+    describe("and exporting multiple named exports and globals", () => {
       beforeEach(() => {
         exports = [{
           name: "Jumbo",

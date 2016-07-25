@@ -83,7 +83,7 @@ describe("buildImports test suite", function() {
       });
     });
 
-    describe("and configuring an array with a single config imports with an alias", () => {
+    describe("and configuring an array with a single config imports with a named import", () => {
       beforeEach(() => {
         imports = [{
           name: "a",
@@ -98,7 +98,7 @@ describe("buildImports test suite", function() {
       });
     });
 
-    describe("and configuring an array of a single config import with global set to true", () => {
+    describe("and configuring an array of a single config imports with a name and global set to true", () => {
       beforeEach(() => {
         imports = [{
           name: "a",
@@ -113,7 +113,22 @@ describe("buildImports test suite", function() {
       });
     });
 
-    describe("and configuring an array of a single config imports with global set to a named module", () => {
+    describe("and configuring an array of a single config imports with a named import and a named global", () => {
+      beforeEach(() => {
+        imports = [{
+          global: "a",
+          as: "A"
+        }];
+
+        act();
+      });
+
+      it("then the result has the dependency with a global export", () => {
+        expect(result).to.be.equal(";A = global['\a'\];");
+      });
+    });
+
+    describe("and configuring an array of a single config imports with named globals", () => {
       beforeEach(() => {
         imports = [{
           name: "a",
