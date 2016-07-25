@@ -74,7 +74,11 @@ function buildImports(config) {
 					.join("");
 			}
 
-			return result + " = require('" + item.name + "');";
+			if (item.name) {
+				result += " = require('" + item.name + "')";
+			}
+
+			return result + ";";
 		}, ";");
 }
 
@@ -102,7 +106,11 @@ function buildExports(config) {
 					.join("");
 			}
 
-			return result + " = " + item.name + ";";
+			if (item.name) {
+				result += " = " + item.name;
+			}
+
+			return result + ";";
 		}, ";");
 }
 
