@@ -41,6 +41,7 @@ Configuration for defining dependencies. You can provide a module name, an array
 > When defining a configuration object with a module name as well as a global name, the module name is imported and also written to the global object.
 
 The following example does a few things.
+
 1. Defines the specific file to be used when the module `bootstrap` is imported by another module.
 2. It defines a dependency on `jquery`, which causes `jquery` to be laoded first and brought in as a dependency.
 3. It creates a local variable called `jQuery` which points to `jquery`.
