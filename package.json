@@ -21,15 +21,15 @@
   },
   "homepage": "https://github.com/MiguelCastillo/bit-loader-shimmer#readme",
   "dependencies": {
-    "belty": "^4.0.3",
+    "belty": "^5.1.0",
     "dis-isa": "^1.2.3"
   },
   "devDependencies": {
     "babel-core": "^6.13.2",
     "babel-preset-es2015": "^6.13.2",
     "babel-register": "^6.11.6",
-    "chai": "^3.5.0",
-    "eslint": "^3.2.2",
-    "mocha": "^3.0.2"
+    "chai": "^4.1.2",
+    "eslint": "^4.12.1",
+    "mocha": "^4.0.1"
   }
 }

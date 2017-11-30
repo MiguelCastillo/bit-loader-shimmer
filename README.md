@@ -1,4 +1,6 @@
 # bit-loader-shimmer
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/MiguelCastillo/bit-loader-shimmer.svg)](https://greenkeeper.io/)
 plugin for shimming modules in bit-bundler.
 
 # Install
