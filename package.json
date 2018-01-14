@@ -1,6 +1,6 @@
 {
   "name": "bit-loader-shimmer",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "plugin for shimming modules in bit-bundler",
   "main": "index.js",
   "scripts": {
