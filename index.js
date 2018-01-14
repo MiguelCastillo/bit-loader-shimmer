@@ -23,7 +23,7 @@ function shimmer() {
 		}
 	}
 
-	function precompile(meta) {
+	function postdependency(meta) {
 		if (shims.hasOwnProperty(meta.shimName)) {
 			return utils.pick(shims[meta.shimName], ["exports"]);
 		}
@@ -46,7 +46,7 @@ function shimmer() {
 	return {
 		resolve: resolve,
 		transform: transform,
-		precompile: precompile
+		postdependency: postdependency
 	};
 }
 
