@@ -6,7 +6,7 @@ plugin for shimming modules in bit-bundler.
 
 # Install
 
-`$ npm install bit-loader-shimmer`
+`$ npm install @bit/loader-shimmer`
 
 
 # Options
